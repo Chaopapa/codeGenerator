@@ -1,6 +1,7 @@
 package ${package.Controller};
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.le.core.annotation.SystemLog;
 import ${package.Entity}.${entity};
 import ${package.Service}.${table.serviceName};
 import com.le.core.rest.R;
@@ -52,10 +53,6 @@ public class ${table.controllerName} {
     @Autowired
     private ${table.serviceName} ${serviceName};
 
-    private static final String INDEX = "admin/${package.ModuleName}/${table.entityPath}/index";
-
-    private static final String EDIT = "admin/${package.ModuleName}/${table.entityPath}/edit";
-
     /**
      * 跳转${table.comment!}首页
      *
@@ -65,16 +62,19 @@ public class ${table.controllerName} {
     @RequestMapping({"/index", "/"})
     @RequiresPermissions("${package.ModuleName}:${table.entityPath}:view")
     public String index(ModelMap model) {
-        return INDEX;
+        return "admin/${package.ModuleName}/${table.entityPath}/index";
     }
 
-    /** 获取${table.comment!}分页数据
+    /**
+     * 获取${table.comment!}分页数据
+     *
      * @param search 搜索条件
      * @return
      */
     @RequestMapping("/page")
     @ResponseBody
     @RequiresPermissions("${package.ModuleName}:${table.entityPath}:view")
+    @SystemLog("查看${table.comment!}列表")
     public R page(${entity} search) {
         Page<${entity}> page = HttpContextUtils.getPage();
         return ${serviceName}.findPage(page, search);
@@ -82,40 +82,46 @@ public class ${table.controllerName} {
 
     /**
      * 跳转${table.comment!}信息页
+     *
      * @param model
      * @param id
      * @return
      */
     @RequestMapping("/edit")
     @RequiresPermissions("${package.ModuleName}:${table.entityPath}:view")
+    @SystemLog("查看${table.comment!}详情")
     public String edit(ModelMap model, Long id) {
         if (id != null) {
             ${entity} ${entityName} = ${serviceName}.getById(id);
-            model.put("${entityName}", ${entityName});
+            model.put("entity", ${entityName});
         }
-        return EDIT;
+        return "admin/${package.ModuleName}/${table.entityPath}/edit";
     }
 
     /**
      * 添加或者更新${table.comment!}
+     *
      * @param ${entityName}
      * @return
      */
     @RequestMapping("/editData")
     @ResponseBody
     @RequiresPermissions("${package.ModuleName}:${table.entityPath}:edit")
+    @SystemLog("编辑${table.comment!}信息")
     public R editData(@Valid ${entity} ${entityName}) {
         return ${serviceName}.editData(${entityName});
     }
 
     /**
      * 删除${table.comment!}
+     *
      * @param ids
      * @return
      */
     @RequestMapping("/del")
     @ResponseBody
     @RequiresPermissions("${package.ModuleName}:${table.entityPath}:edit")
+    @SystemLog("删除${table.comment!}")
     public R del(@RequestParam("ids") List<Long> ids){
         ${serviceName}.removeByIds(ids);
         return R.success();
