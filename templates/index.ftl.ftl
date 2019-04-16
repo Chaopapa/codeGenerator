@@ -11,24 +11,22 @@
         </div>
         <div class="box-body">
             <form id="form" class="form-inline">
-                <ul class="tablePanel">
-                    <div class="form-group">
-                        <label>用户账号:</label>
-                        <input type="text" class="form-control" name="username" placeholder="请输入用户账号"/>
-                    </div>
-                    <div class="form-group">
-                        <label>名称:</label>
-                        <input type="text" class="form-control" name="name" placeholder="请输入名称"/>
-                    </div>
-                    <div class="form-group">
-                        <button type="button" class="btn btn-success" onclick="m_search();">
-                            <i class="glyphicon glyphicon-search"></i> 搜索
-                        </button>
-                        <button type="button" class="btn btn-primary" onclick="m_reset();">
-                            <i class="glyphicon glyphicon-remove"></i> 重置
-                        </button>
-                    </div>
-                </ul>
+                <div class="form-group">
+                    <label>用户账号:</label>
+                    <input type="text" class="form-control" name="username" placeholder="请输入用户账号"/>
+                </div>
+                <div class="form-group">
+                    <label>名称:</label>
+                    <input type="text" class="form-control" name="name" placeholder="请输入名称"/>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-success" onclick="m_search();">
+                        <i class="glyphicon glyphicon-search"></i> 搜索
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="m_reset();">
+                        <i class="glyphicon glyphicon-remove"></i> 重置
+                    </button>
+                </div>
             </form>
             <table id="table"
                    component="table"
