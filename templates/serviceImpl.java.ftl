@@ -31,10 +31,6 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
         QueryWrapper<${entity}> qw = new QueryWrapper<>();
 
         IPage<${entity}> page = baseMapper.selectPage(pagination, qw);
-
-        if(page == null){
-            return R.empty();
-        }
         return R.success(page);
     }
 
