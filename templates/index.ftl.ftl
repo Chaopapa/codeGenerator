@@ -31,26 +31,11 @@
             <table id="table"
                    component="table"
                    class="table table-striped"
-                   table-url = "page"
+                   table-url="page"
                    data-search-from="form"
-                   data-search="false"
-                   data-show-refresh="true"
-                   data-show-toggle="true"
-                   data-show-columns="true"
-                   data-show-export="false"
-                   data-refresh-callback="refresh"
-                   data-load-callback="loadback"
-                   data-height="100%"
-                   dataType="1"
-                   data-dataList="json"
-                   data-page-list="[5,10]"
-                   data-ajaxType="json"
                    data-remove-callback="remove"
                    data-checkbox="true"
-                   data-search-callback=""
-                   data-BeforeDel="beforeDel"
-                   data-add-callback="add"
-                   data-operation='{"remove":{icon:"remove","event":"click",class:"remove",eventFun:"removeEve"}}'>
+                   data-add-callback="add">
                 <thead>
                 <tr>
                     <#list table.fields as field>
