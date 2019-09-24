@@ -1,11 +1,11 @@
 package ${package.Controller};
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.le.core.annotation.SystemLog;
+import com.cc.core.annotation.SystemLog;
 import ${package.Entity}.${entity};
 import ${package.Service}.${table.serviceName};
-import com.le.core.rest.R;
-import com.le.core.util.HttpContextUtils;
+import com.cc.core.rest.R;
+import com.cc.core.util.HttpContextUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;

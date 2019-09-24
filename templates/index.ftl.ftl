@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-[@le.head _title="${table.comment}"]
-[/@le.head]
-[@le.body]
+[@cc.head _title="${table.comment}"]
+[/@cc.head]
+[@cc.body]
 <body class="container-fluid">
 <section class="content">
     <div class="box">
@@ -136,5 +136,5 @@
         $("#table").bootstrapTable("refresh");
     }
 </script>
-[/@le.body]
+[/@cc.body]
 </html>

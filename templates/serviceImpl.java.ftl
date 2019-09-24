@@ -7,7 +7,7 @@ import ${package.Entity}.${entity};
 import ${package.Mapper}.${table.mapperName};
 import ${package.Service}.${table.serviceName};
 import ${superServiceImplClassPackage};
-import com.le.core.rest.R;
+import com.cc.core.rest.R;
 import org.springframework.stereotype.Service;
 
 /**

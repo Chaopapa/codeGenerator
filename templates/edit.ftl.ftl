@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-[@le.head _title="${table.comment!}编辑"]
-[/@le.head]
-[@le.body]
+[@cc.head _title="${table.comment!}编辑"]
+[/@cc.head]
+[@cc.body]
 <section class="content">
     <div class="box">
         <div class="box-header with-border">
