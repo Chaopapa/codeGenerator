@@ -1,6 +1,5 @@
 package com.le;
 
-import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
@@ -8,13 +7,9 @@ import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.beust.jcommander.JCommander;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-
-import static sun.tools.jar.CommandLine.parse;
 
 public class CodeGenerator {
 //    public static final String jdbcUrl = "jdbc:mysql://192.168.100.180:3306/mqzhny?useUnicode=true&useSSL=false&characterEncoding=utf8";
@@ -95,7 +90,7 @@ public class CodeGenerator {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输入文件名称
-                return param.out + "/src/main/java/com/le/" + pc.getModuleName() + "/mapper/xml/" + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
+                return param.out + "/src/main/java/com/cc/" + pc.getModuleName() + "/mapper/xml/" + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML;
             }
         });
         focList.add(new FileOutConfig("/templates/index.ftl.ftl") {
@@ -120,7 +115,7 @@ public class CodeGenerator {
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setSuperEntityClass("com.le.core.base.SuperEntity");
+        strategy.setSuperEntityClass("com.cc.core.base.SuperEntity");
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
         //strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");

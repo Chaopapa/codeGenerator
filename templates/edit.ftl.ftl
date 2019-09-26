@@ -51,5 +51,5 @@
 
     };
 </script>
-[/@le.body]
+[/@cc.body]
 </html>

@@ -1,7 +1,6 @@
 package ${package.Controller};
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.cc.core.annotation.SystemLog;
 import ${package.Entity}.${entity};
 import ${package.Service}.${table.serviceName};
 import com.cc.core.rest.R;
@@ -74,7 +73,6 @@ public class ${table.controllerName} {
     @RequestMapping("/page")
     @ResponseBody
     @RequiresPermissions("${package.ModuleName}:${table.entityPath}:view")
-    @SystemLog("查看${table.comment!}列表")
     public R page(${entity} search) {
         Page<${entity}> page = HttpContextUtils.getPage();
         return ${serviceName}.findPage(page, search);
@@ -89,7 +87,6 @@ public class ${table.controllerName} {
      */
     @RequestMapping("/edit")
     @RequiresPermissions("${package.ModuleName}:${table.entityPath}:view")
-    @SystemLog("查看${table.comment!}详情")
     public String edit(ModelMap model, Long id) {
         if (id != null) {
             ${entity} ${entityName} = ${serviceName}.getById(id);
@@ -107,7 +104,6 @@ public class ${table.controllerName} {
     @RequestMapping("/editData")
     @ResponseBody
     @RequiresPermissions("${package.ModuleName}:${table.entityPath}:edit")
-    @SystemLog("编辑${table.comment!}信息")
     public R editData(@Valid ${entity} ${entityName}) {
         return ${serviceName}.editData(${entityName});
     }
@@ -121,7 +117,6 @@ public class ${table.controllerName} {
     @RequestMapping("/del")
     @ResponseBody
     @RequiresPermissions("${package.ModuleName}:${table.entityPath}:edit")
-    @SystemLog("删除${table.comment!}")
     public R del(@RequestParam("ids") List<Long> ids){
         ${serviceName}.removeByIds(ids);
         return R.success();
